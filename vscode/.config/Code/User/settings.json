@@ -1,0 +1,10 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Monokai",
+    "files.autoSave": "onWindowChange",
+    "git.autofetch": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 0,
+    "explorer.confirmDelete": false
+}
