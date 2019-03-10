@@ -30,7 +30,7 @@ font-4 = FontAwesome:size=10;2
 
 modules-left = playerctl
 modules-center = xwindow
-modules-right = backlight battery
+modules-right = pulseaudio backlight battery
 
 tray-position = right
 
@@ -114,12 +114,29 @@ wm-restack = ${bar/bottom.wm-restack}
 
 [module/playerctl]
 type = custom/script
-exec = ~/.config/polybar/playerctl.sh
+exec = ~/.config/polybar/scripts/playerctl.sh
 interval = 3
 
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = false
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  Muted
+label-muted-foreground = #666
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 [module/fs-root]
 type = internal/fs
@@ -159,7 +176,7 @@ pin-workspaces = true
 ws-icon-0 = term;
 ws-icon-1 = web;
 ws-icon-2 = code;
-ws-icon-3 = music; 
+ws-icon-3 = music;
 ws-icon-4 = irssi;
 ws-icon-default = 
 

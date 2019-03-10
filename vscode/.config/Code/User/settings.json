@@ -6,5 +6,33 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "explorer.confirmDragAndDrop": false,
     "window.zoomLevel": 0,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "breadcrumbs.enabled": true,
+    "editor.renderWhitespace": "all",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.useExperimentalFileWatcher": true,
+    "eslint.enable": true,
+    "eslint.run": "onType",
+    "eslint.validate": [
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "html",
+            "autoFix": true
+        },
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        }
+    ],
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "terminal.explorerKind": "external"
 }
