@@ -25,9 +25,10 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec xst
+bindsym $mod1+Ctrl+t exec xst
 
 # kill focused window
-bindsym $mod1+q kill
+bindsym $mod1+F4 kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -51,12 +52,18 @@ bindsym $mod+Ctrl+m exec xst -e 'alsamixer'
 
 ################################################################################################
 
+# Set layout keymap
+exec setxkbmap -model abnt2 -layout br -variant abnt2
+
 # Set Wallpaper
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1;
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec ~/.i3/brightness.sh 0.1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec ~/.i3/brightness.sh -0.1 # decrease screen brightness
+
+# PrintScreen
+# bindsym --release Print exec --no-startup-id flameshot
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -77,7 +84,7 @@ bindsym $mod+F2 exec chromium
 bindsym $mod+F3 exec thunar
 # bindsym $mod+F3 exec ranger
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
@@ -289,11 +296,10 @@ mode "resize" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id conky
+# exec --no-startup-id conky
 exec --no-startup-id blueman
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
-exec --no-startup-id pamac-tray
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id ~/.config/polybar/launch
 # exec_always --no-startup-id sbxkb
