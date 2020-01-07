@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Configure Keyboard
+setxkbmap -model abnt2 -layout br -variant abnt2
+
 # Configure Network
 nmtui
 
@@ -14,6 +17,10 @@ yay -S conky
 yay -S rofi
 yay -S fish
 yay -S xst
+yay -S xorg-xbacklight
+yay -S xorg-xinput
+yay -S nitrogen
+yay -S alsamixer.app
 
 # My programs
 yay -S thunar
