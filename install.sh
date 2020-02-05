@@ -40,13 +40,5 @@ yay -Rs firefox
 yay -S otf-font-awesome-4
 yay -S ttf-unifont
 
-# Recovery of configs
-stow i3
-stow polybar
-stow fish
-stow rofi
-stow vscode
-stow yarn
-
 # Set default shell
 chsh -s `which fish`
