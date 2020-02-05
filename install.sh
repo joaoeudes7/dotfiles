@@ -17,6 +17,8 @@ yay -S conky
 yay -S rofi
 yay -S fish
 yay -S xst
+yay -S tmux
+yay -S firefox-developer-edition
 yay -S xorg-xbacklight
 yay -S xorg-xinput
 yay -S nitrogen
@@ -32,6 +34,7 @@ yay -S spotify
 
 # Remove unsed
 yay -Rs palemoon-bin
+yay -Rs firefox
 
 # Fonts
 yay -S otf-font-awesome-4
