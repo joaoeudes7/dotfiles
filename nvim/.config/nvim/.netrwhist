@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/joaoeudes7/front_auditorias/site/src/views/auditorship'
+let g:netrw_dirhist_5='/home/joaoeudes7/front_auditorias/site/src/views'
+let g:netrw_dirhist_4='/home/joaoeudes7/front_auditorias/site/src'
+let g:netrw_dirhist_3='/home/joaoeudes7/front_auditorias/site'
+let g:netrw_dirhist_2='/home/joaoeudes7/front_auditorias'
+let g:netrw_dirhist_1='/home/joaoeudes7'
