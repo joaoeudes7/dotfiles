@@ -8,7 +8,7 @@ nmtui
 
 ## AUTO INSTALL
 
-# Dependecies
+# Dependecies utils System
 sudo pacman -S yay
 yay -S stow
 yay -S playerctl
