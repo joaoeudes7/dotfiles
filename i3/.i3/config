@@ -58,6 +58,9 @@ exec setxkbmap -model abnt2 -layout br -variant abnt2
 # Set Wallpaper
 exec --no-startup-id nitrogen --restore; sleep 1;
 
+# Set Conky
+exec --no-startup-id conky -b;
+
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec ~/.i3/brightness.sh 0.1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec ~/.i3/brightness.sh -0.1 # decrease screen brightness

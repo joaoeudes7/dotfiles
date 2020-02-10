@@ -30,7 +30,7 @@ font-4 = FontAwesome:size=10;2
 
 modules-left = playerctl
 modules-center = xwindow
-modules-right = pulseaudio backlight battery
+modules-right = network pulseaudio backlight battery
 
 tray-position = right
 
@@ -267,19 +267,29 @@ bar-used-empty = █
 bar-used-empty-font = 5
 bar-used-empty-foreground = #44
 
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 5.0
+udspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
+format-packetloss = <animation-packetloss> <label-connected>
+label-connected =  %essid%
+
 [module/clock]
 type = internal/date
 interval = 5
 format-padding = 5
 format-background = #000
 format-foreground = #fff
-date = %%{F#bb}%d/%m/%Y%%{F-}  %%{F#ee}%H:%M%%{F-}
+date = %%{F#bb}%d/%m/%Y%%{F-} %%{F#ee}%H:%M%%{F-}
 
 [module/battery]
 type = internal/battery
 full-at = 100
 
-poll-interval = 5
+poll-interval = 10
 
 format-charging = <animation-charging>  <label-charging>
 format-discharging = <ramp-capacity>  <label-discharging>
