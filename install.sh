@@ -26,6 +26,8 @@ yay -S alsamixer.app
 
 # My programs
 yay -S thunar
+yay -S spotifyd
+yay -S spotify-tui
 yay -S sublime-text-dev
 yay -S visual-studio-code-bin
 yay -S yarn
