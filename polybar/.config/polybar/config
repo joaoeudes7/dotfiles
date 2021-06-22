@@ -30,7 +30,7 @@ font-4 = FontAwesome:size=10;2
 
 modules-left = playerctl
 modules-center = xwindow
-modules-right = network pulseaudio backlight battery
+modules-right = network pulseaudio xbacklight battery
 
 tray-position = right
 
@@ -51,8 +51,8 @@ underline-color = ${colors.accent}
 ;border-color = #ff0000
 border-top-size = 1
 border-top-color = #3d3d3d
-;border-bottom = 0
-;border-bottom-color = #333333
+border-bottom = 0
+border-bottom-color = #333333
 
 spacing = 3
 ;padding-right = 4
@@ -70,8 +70,15 @@ font-5 = Termsynu:size=7;0
 
 modules-left = i3
 ;modules-center =
-modules-right = cpu memory clock
+modules-right = xkeyboard cpu memory clock
 ;modules-right = memory
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
 
 
 [bar/external]
@@ -90,8 +97,8 @@ underline-color = ${bar/bottom.underline-color}
 overline-size = ${bar/bottom.overline-size}
 overline-color = ${bar/bottom.overline-color}
 
-border-bottom.= ${bar/bottom.border-bottom}
-border-bottom.color = ${bar/bottom.border-bottom-color}
+border-bottom = bar/bottom.border-bottom}
+border-bottom-color = ${bar/bottom.border-bottom-color}
 
 spacing = ${bar/bottom.spacing}
 padding-left = ${bar/bottom.padding-left}
@@ -146,7 +153,6 @@ label-mounted = %{F#e60053}%percentage_used%%%{F-} used of %mountpoint%
 
 [module/backlight]
 type = internal/xbacklight
-
 enable-scroll = true
 
 format = <ramp> <label>
@@ -154,12 +160,11 @@ format = <ramp> <label>
 label = %percentage%%
 
 ; Only applies if <ramp> is used
-ramp-0 = 
-ramp-0-foreground = #666
-ramp-1 = 
-ramp-1-foreground = #999
-ramp-2 = 
-ramp-2-foreground = #fff
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
 ; Only applies if <bar> is used
 bar-width = 10
@@ -283,7 +288,7 @@ interval = 5
 format-padding = 5
 format-background = #000
 format-foreground = #fff
-date = %%{F#bb}%d/%m/%Y%%{F-} %%{F#ee}%H:%M%%{F-}
+date = %%{F#bbb}%d/%m/%Y%%{F-} %%{F#eee}%H:%M%%{F-}
 
 [module/battery]
 type = internal/battery

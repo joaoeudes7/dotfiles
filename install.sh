@@ -25,7 +25,7 @@ yay -S nitrogen
 yay -S alsamixer.app
 
 # My programs
-yay -S thunar
+yay -S pcmanfm
 yay -S spotifyd
 yay -S spotify-tui
 yay -S sublime-text-dev
@@ -33,6 +33,8 @@ yay -S visual-studio-code-bin
 yay -S yarn
 yay -S chromium
 yay -S spotify
+yay -S downgrade
+yay -S windscribe
 
 # Remove unsed
 yay -Rs palemoon-bin

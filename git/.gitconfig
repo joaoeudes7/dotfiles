@@ -1,6 +1,11 @@
 [user]
 	name = João Eudes Lima
 	email = joaoeudes7@gmail.com
+	signingkey = B354C5BE3B78D8AD
 [credential]
 	helper = cache --timeout 99999999
 
+[core]
+	autocrlf = input
+[commit]
+	gpgsign = true
