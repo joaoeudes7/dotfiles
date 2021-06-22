@@ -1,0 +1,107 @@
+-- @joaoeudes7 - 2020
+-- New version converted to script Lua using script Conky:
+-- sudo lua /usr/share/doc/conky-1.11.5_pre/convert.lua ~/.conkyrc ~/.newConkyrc
+
+conky.config = {
+	background = true,
+	own_window = true,
+
+	use_xft = true,
+	font = 'Dejavu Sans:size=8',
+	xftalpha = 0,
+	update_interval = 2,
+	total_run_times = 0,
+
+	own_window_class = 'conky',
+
+	own_window_transparent = true,
+	own_window_argb_visual = true,
+	own_window_argb_value = 25,
+	own_window_type = 'dock',
+	own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+	double_buffer = true,
+	maximum_width = 250,
+	draw_shades = false,
+	draw_outline = true,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_color = 'grey',
+	default_shade_color = 'black',
+	default_outline_color = 'black',
+	alignment = 'top_right',
+	gap_x = 8,
+	gap_y = 40,
+	no_buffers = true,
+	cpu_avg_samples = 4,
+	text_buffer_size = 1024,
+	override_utf8_locale = true,
+	uppercase = false,
+};
+
+conky.text = [[
+S I S T E M A  ${hr}
+${offset 10}$alignc${exec whoami} @ $nodename
+${offset 10}Kernel: ${color green}$sysname $kernel $color
+${offset 10}Tempo ativo:$color $uptime
+${offset 10}Hora: ${time %H:%M} $alignr Data: ${time %d/%b/%Y}
+${hr 2}
+
+C P U $alignr ${cpu}% - ${acpitemp}°C
+${hr 2}
+Processador:
+${color green} ${cpubar cpu0 4,110} $color$alignr ${cpu cpu0}% | ${freq_g cpu0}GHz
+${color green} ${cpubar cpu1 4,110} $color$alignr ${cpu cpu1}% | ${freq_g cpu1}GHz
+${color green} ${cpubar cpu2 4,110} $color$alignr ${cpu cpu2}% | ${freq_g cpu2}GHz
+${color green} ${cpubar cpu3 4,110} $color$alignr ${cpu cpu3}% | ${freq_g cpu3}GHz
+
+T O P   C P U $alignr ⚙
+${hr 2}
+${color #606060} Processo$alignr CPU% MEM% $color
+${top name 1}$alignr${top cpu 1} ${top mem 1}
+${top name 2}$alignr${top cpu 2} ${top mem 2}
+${top name 3}$alignr${top cpu 3} ${top mem 3}
+${top name 4}$alignr${top cpu 4} ${top mem 4}
+${top name 5}$alignr${top cpu 5} ${top mem 5}
+${top name 6}$alignr${top cpu 6} ${top mem 6}
+${top name 7}$alignr${top cpu 7} ${top mem 7}
+${color green}${cpugraph} $color
+
+R A M $alignr $memperc%
+${hr 2}
+Memória: $alignr${mem} / ${memmax}
+${color green}${membar 4} $color
+
+T O P   R A M
+${hr 2}
+${color #606060} Processo$alignr CPU% MEM% $color
+${top_mem name 1}$alignr${top_mem cpu 1} ${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2} ${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3} ${top_mem mem 3}
+${top_mem name 4}$alignr${top_mem cpu 4} ${top_mem mem 4}
+${top_mem name 5}$alignr${top_mem cpu 5} ${top_mem mem 5}
+${top_mem name 6}$alignr${top_mem cpu 6} ${top_mem mem 6}
+${top_mem name 7}$alignr${top_mem cpu 7} ${top_mem mem 7}
+
+A R M A Z E N A M E N T O $alignr ◔
+${hr 2}
+Raiz: $alignr$color${fs_used /} / ${fs_size /}
+${color green}${fs_bar 4 /} $color
+Home: $alignr$color${fs_used /home} / ${fs_size /home}
+${color green}${fs_bar 4 /home} $color
+
+#${if_existing /proc/net/route wlp2s0}
+R E D E $alignr${tcp_portmon 1 65535 count}
+${hr 2}
+${alignc}Wifi (wlp2s0)
+${alignc}${addr wlp2s0}/${execi 60 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+
+${color #606060}Conexões $alignr Consumo$color
+Saida:  ${tcp_portmon 32768 61000 count} $alignr${totalup wlp2s0} ▲
+Entrada: ${tcp_portmon 1 32767 count}$alignr${totaldown wlp2s0} ▼
+${downspeedgraph wlp2s0 100,200 .4 20C20E ffffff -l -t} $color
+▼ ${downspeed wlp2s0} $alignr▲ ${upspeed wlp2s0}
+#${else}
+#${if_existing /proc/net/route enp3s0}
+#${endif}${endif}
+
+]];
