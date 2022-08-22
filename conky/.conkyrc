@@ -3,37 +3,54 @@
 -- sudo lua /usr/share/doc/conky-1.11.5_pre/convert.lua ~/.conkyrc ~/.newConkyrc
 
 conky.config = {
-	background = true,
-	own_window = true,
-
-	use_xft = true,
-	font = 'Dejavu Sans:size=8',
-	xftalpha = 0,
+	-- Elegant Conky settings #
+	background = false,
 	update_interval = 2,
 	total_run_times = 0,
 
-	own_window_class = 'conky',
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
 
-	own_window_transparent = true,
+	override_utf8_locale = true,
+
+	double_buffer = true,
+	no_buffers = true,
+
+
+-- Text settings #
+	use_xft = true,
+	xftalpha = 0.8,
+	text_buffer_size = 2048,
+	font = 'Dejavu Sans:size=8',
+	-- total_run_times = 0,
+
+
+-- Window specifications #
+	own_window = true,
+	own_window_class = 'conky',
+	own_window_transparent = yes,
 	own_window_argb_visual = true,
-	own_window_argb_value = 25,
-	own_window_type = 'dock',
+	own_window_argb_value = 0,
+	own_window_type = 'normal',
 	own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+
 	double_buffer = true,
 	maximum_width = 250,
+
+	-- Graphics settings #
 	draw_shades = false,
-	draw_outline = true,
 	draw_borders = false,
 	draw_graph_borders = false,
+	draw_outline = false,
+
 	default_color = 'grey',
 	default_shade_color = 'black',
 	default_outline_color = 'black',
 	alignment = 'top_right',
 	gap_x = 8,
-	gap_y = 40,
+	gap_y = 16,
 	no_buffers = true,
-	cpu_avg_samples = 4,
-	text_buffer_size = 1024,
+	-- cpu_avg_samples = 4,
 	override_utf8_locale = true,
 	uppercase = false,
 };
@@ -53,6 +70,8 @@ ${color green} ${cpubar cpu0 4,110} $color$alignr ${cpu cpu0}% | ${freq_g cpu0}G
 ${color green} ${cpubar cpu1 4,110} $color$alignr ${cpu cpu1}% | ${freq_g cpu1}GHz
 ${color green} ${cpubar cpu2 4,110} $color$alignr ${cpu cpu2}% | ${freq_g cpu2}GHz
 ${color green} ${cpubar cpu3 4,110} $color$alignr ${cpu cpu3}% | ${freq_g cpu3}GHz
+${color green} ${cpubar cpu4 4,110} $color$alignr ${cpu cpu3}% | ${freq_g cpu3}GHz
+${color green} ${cpubar cpu5 4,110} $color$alignr ${cpu cpu3}% | ${freq_g cpu3}GHz
 
 T O P   C P U $alignr ⚙
 ${hr 2}
@@ -89,17 +108,17 @@ ${color green}${fs_bar 4 /} $color
 Home: $alignr$color${fs_used /home} / ${fs_size /home}
 ${color green}${fs_bar 4 /home} $color
 
-#${if_existing /proc/net/route wlp2s0}
+#${if_existing /proc/net/route wlp5s0}
 R E D E $alignr${tcp_portmon 1 65535 count}
 ${hr 2}
-${alignc}Wifi (wlp2s0)
-${alignc}${addr wlp2s0}/${execi 60 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+${alignc}Wifi (wlp5s0)
+${alignc}${addr wlp5s0}/${execi 60 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
 
 ${color #606060}Conexões $alignr Consumo$color
-Saida:  ${tcp_portmon 32768 61000 count} $alignr${totalup wlp2s0} ▲
-Entrada: ${tcp_portmon 1 32767 count}$alignr${totaldown wlp2s0} ▼
-${downspeedgraph wlp2s0 100,200 .4 20C20E ffffff -l -t} $color
-▼ ${downspeed wlp2s0} $alignr▲ ${upspeed wlp2s0}
+Saida:  ${tcp_portmon 32768 61000 count} $alignr${totalup wlp5s0} ▲
+Entrada: ${tcp_portmon 1 32767 count}$alignr${totaldown wlp5s0} ▼
+${downspeedgraph wlp5s0 100,200 .4 20C20E ffffff -l -t} $color
+▼ ${downspeed wlp5s0} $alignr▲ ${upspeed wlp5s0}
 #${else}
 #${if_existing /proc/net/route enp3s0}
 #${endif}${endif}
